@@ -247,14 +247,10 @@ const Content = React.memo(() => {
                 />
               )}
             </div>
-            <p className={styles.formFooter}>
-              <Trans i18nKey="common.poweredByPlanka">
-                {'Powered by '}
-                <a href="https://github.com/plankanban/planka" target="_blank" rel="noreferrer">
-                  PLANKA
-                </a>
-              </Trans>
-            </p>
+          <p className={styles.formFooter}>
+  by <a href="https://github.com/EngMoazHany" target="_blank" rel="noreferrer">Moaz El Mahdy</a>
+</p>
+
           </div>
         </Grid.Column>
         <Grid.Column
