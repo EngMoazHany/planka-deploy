@@ -7,28 +7,12 @@ services:
     ports:
       - 3000:1337
     environment:
-      - BASE_URL=http://localhost:3000
-      - DATABASE_URL=postgresql://postgres@postgres/planka
+      - BASE_URL=https://your-subdomain.onrender.com
+      - DATABASE_URL=postgresql://postgres:<your-password>@<your-db-host>:5432/planka
       - SECRET_KEY=notsecretkey
 
-      # ✅ بيانات الأدمن الجديد
-      - DEFAULT_ADMIN_EMAIL=Moazhany27@gamil.com
+      # ✅ بيانات الأدمن
+      - DEFAULT_ADMIN_EMAIL=Moazhany27@gmail.com
       - DEFAULT_ADMIN_USERNAME=Moazhany
       - DEFAULT_ADMIN_NAME=Moazhany
       - DEFAULT_ADMIN_PASSWORD=Moazhany27
-
-    depends_on:
-      postgres:
-        condition: service_healthy
-
-  postgres:
-    image: postgres:16-alpine
-    restart: on-failure
-    environment:
-      - POSTGRES_DB=planka
-      - POSTGRES_HOST_AUTH_METHOD=trust
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d planka"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
